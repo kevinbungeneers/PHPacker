@@ -1,5 +1,7 @@
 #!/bin/bash -eux
 
+sudo add-apt-repository ppa:rquillo/ansible
+
 # Update the package list
 apt-get update
 
@@ -8,6 +10,8 @@ apt-get -y upgrade linux-server linux-headers-server
 
 # ensure the correct kernel headers are installed
 apt-get -y install linux-headers-$(uname -r)
+
+apt-get -y install ansible
 
 # sshd tweak to prevent DNS resolution
 echo "UseDNS no" >> /etc/ssh/sshd_config

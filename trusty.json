@@ -96,6 +96,11 @@
       ]
     },
     {
+      "type": "ansible-local",
+      "playbook_dir": "ansible",
+      "playbook_file": "ansible/site.yml"
+    },
+    {
       "type": "shell",
       "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "scripts": [
