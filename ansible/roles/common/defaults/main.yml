@@ -1,2 +1,5 @@
 ---
-  common_packages: []
+  common_packages:
+    - htop
+    - git
+    - vim
