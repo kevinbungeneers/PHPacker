@@ -1,0 +1,23 @@
+---
+- name: Add nginx signing key
+  apt_key:
+    url: http://nginx.org/keys/nginx_signing.key
+    state: present
+
+- name: Add nginx repository
+  apt_repository:
+    repo: deb http://nginx.org/packages/ubuntu/ trusty nginx
+    state: present
+    update_cache: yes
+
+- name: Add nginx source repository
+  apt_repository:
+    repo: deb-src http://nginx.org/packages/ubuntu/ trusty nginx
+    state: present
+    update_cache: yes
+
+- name: Install nginx
+  apt:
+    pkg: nginx
+    state: present
+    update_cache: yes

@@ -2,9 +2,6 @@
 - hosts: 127.0.0.1
   sudo: yes
   connection: local
-
-  vars_files:
-    - variables/common.yml
-
   roles:
     - common
+    - nginx
