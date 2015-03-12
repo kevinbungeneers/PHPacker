@@ -1,0 +1,6 @@
+#!/bin/sh
+
+./configure \
+    {% for extension in extensions %}
+    --{{ extension }} \
+    {% endfor %}
