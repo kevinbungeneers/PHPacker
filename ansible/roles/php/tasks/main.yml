@@ -3,4 +3,5 @@
 - include: bison-2.6.4.yml
 - include: build.yml
 - include: configure.yml
+- include: composer.yml
 - include: cleanup.yml
