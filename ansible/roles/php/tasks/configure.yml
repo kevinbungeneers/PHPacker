@@ -1,0 +1,21 @@
+---
+- name: Install php.ini (cli)
+  template:
+    src: php-cli.ini.j2
+    dest: /usr/local/lib/php-cli.ini
+
+- name: Install php.ini (fpm)
+  template:
+    src: php-fpm.ini.j2
+    dest: /usr/local/lib/php-fpm-fcgi.ini
+
+- name: Install php-fpm.conf
+  template:
+    src: php-fpm.conf.j2
+    dest: /usr/local/etc/php-fpm.conf
+
+- name: Install init script
+  copy:
+    src: init.d.php-fpm
+    dest: /etc/init.d/php-fpm
+    mode: 0755
