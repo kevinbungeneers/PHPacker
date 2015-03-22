@@ -4,4 +4,5 @@
 - include: build.yml
 - include: configure.yml
 - include: composer.yml
+- include: xdebug.yml
 - include: cleanup.yml

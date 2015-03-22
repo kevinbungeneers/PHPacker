@@ -924,7 +924,7 @@ cli_server.color = On
 [Date]
 ; Defines the default timezone used by the date functions
 ; http://php.net/date.timezone
-date.timezone = {{ php_fpm_timezone }}
+date.timezone = {{ php_timezone }}
 
 ; http://php.net/date.default-latitude
 ;date.default_latitude = 31.7667
@@ -1873,8 +1873,9 @@ ldap.max_links = -1
 ;dba.default_handler=
 
 [opcache]
+zend_extension=opcache.so
 ; Determines if Zend OPCache is enabled
-;opcache.enable=0
+opcache.enable=0
 
 ; Determines if Zend OPCache is enabled for the CLI version of PHP
 ;opcache.enable_cli=0
@@ -1967,6 +1968,9 @@ ldap.max_links = -1
 ; Protect the shared memory from unexpected writing during script execution.
 ; Useful for internal debugging only.
 ;opcache.protect_memory=0
+
+[xdebug]
+zend_extension=xdebug.so
 
 [curl]
 ; A default value for the CURLOPT_CAINFO option. This is required to be an

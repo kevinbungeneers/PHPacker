@@ -1,7 +1,7 @@
 ---
 - name: Download PHP source
   get_url:
-    url: "{{ src_archive }}"
+    url: "{{ php_src_archive }}"
     dest: "/tmp/{{ php_version }}.tar.gz"
 
 - name: Create source folder
