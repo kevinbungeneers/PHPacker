@@ -56,7 +56,6 @@ build_dependencies:
   - libt1-dev
   - libsnmp-dev
   - libedit-dev
-  - postgresql-server-dev-9.3
   - libc-client2007e-dev
 
 extensions:
