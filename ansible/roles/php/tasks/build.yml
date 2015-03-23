@@ -4,35 +4,29 @@
     url: "{{ php_src_archive }}"
     dest: "/tmp/{{ php_version }}.tar.gz"
 
-- name: Create source folder
-  file:
-    path: /usr/local/src
-    recurse: yes
-    state: directory
-
 - name: Extract PHP source
   unarchive:
     src: "/tmp/{{ php_version }}.tar.gz"
-    dest: /usr/local/src
+    dest: /tmp
     copy: no
 
 - name: Create configure script
   template:
     src: configure.sh.j2
-    dest: "/usr/local/src/{{ php_version }}/configure.sh"
+    dest: "/tmp/{{ php_version }}/configure.sh"
     mode: 755
 
 - name: Configure build
   command: ./configure.sh
   args:
-    chdir: "/usr/local/src/{{ php_version }}"
+    chdir: "/tmp/{{ php_version }}"
 
 - name: Compile PHP
   command: make -j{{ ansible_processor_cores }}
   args:
-    chdir: "/usr/local/src/{{ php_version }}"
+    chdir: "/tmp/{{ php_version }}"
 
 - name: Install PHP
   command: make install
   args:
-    chdir: "/usr/local/src/{{ php_version }}"
+    chdir: "/tmp/{{ php_version }}"

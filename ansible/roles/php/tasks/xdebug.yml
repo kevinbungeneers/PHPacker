@@ -7,23 +7,23 @@
 - name: Extract xdebug source
   unarchive:
     src: "/tmp/xdebug.tgz"
-    dest: /usr/local/src
+    dest: /tmp
     copy: no
 
 - name: Run phpize
   command: phpize
   args:
-    chdir: "/usr/local/src/xdebug-2.3.1"
+    chdir: "/tmp/{{ xdebug_version }}"
 
 - name: Configure build
   command: ./configure
   args:
-    chdir: "/usr/local/src/xdebug-2.3.1"
+    chdir: "/tmp/{{ xdebug_version }}"
 
 - name: Compile xdebug
   command: make -j{{ ansible_processor_cores }}
   args:
-    chdir: "/usr/local/src/xdebug-2.3.1"
+    chdir: "/tmp/{{ xdebug_version }}"
 
 - name: Copy xdebug extension
-  command: cp /usr/local/src/xdebug-2.3.1/modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226
+  command: cp "/tmp/{{ xdebug_version }}/modules/xdebug.so" /usr/local/lib/php/extensions/no-debug-non-zts-20131226
