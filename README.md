@@ -5,7 +5,7 @@ the sometimes long provisioning times when running `vagrant up`
 ## What's included?
 * PHP 5.6.7 (with xdebug 2.3.2)
 * Composer
-* Nginx 1.6
+* Nginx 1.6.2
 * PostgreSQL 9.4
 
 
