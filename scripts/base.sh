@@ -13,6 +13,8 @@ apt-get -y install linux-headers-$(uname -r)
 
 apt-get -y install ansible
 
+apt-get -y install nfs-common portmap
+
 # sshd tweak to prevent DNS resolution
 echo "UseDNS no" >> /etc/ssh/sshd_config
 echo "GSSAPIAuthentication no" >> /etc/ssh/sshd_config
