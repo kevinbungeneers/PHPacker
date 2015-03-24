@@ -1,5 +1,5 @@
 php_version: php-5.6.7
-php_src_archive: "http://be2.php.net/get/{{ php_version }}.tar.gz/from/this/mirror"
+php_src_archive: "http://nl.php.net/get/{{ php_version }}.tar.gz/from/this/mirror"
 
 xdebug_version: xdebug-2.3.2
 xdebug_src_archive: "http://xdebug.org/files/{{ xdebug_version }}.tgz"
