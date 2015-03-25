@@ -19,3 +19,5 @@
     src: init.d.php-fpm
     dest: /etc/init.d/php-fpm
     mode: 0755
+  notify:
+    - Enable php-fpm
