@@ -1,0 +1,40 @@
+---
+  - name: Download ruby source
+    get_url:
+      url: "{{ ruby_src_archive }}"
+      dest: "/tmp/{{ ruby_version }}.tar.gz"
+
+  - name: Extract ruby source
+    unarchive:
+      src: "/tmp/{{ ruby_version }}.tar.gz"
+      dest: /tmp
+      copy: no
+
+  - name: Configure build
+    command: ./configure
+    args:
+      chdir: "/tmp/{{ ruby_version }}"
+
+  - name: Compile ruby
+    command: make -j{{ ansible_processor_cores }}
+    args:
+      chdir: "/tmp/{{ ruby_version }}"
+
+  - name: Install ruby
+    command: make install
+    args:
+      chdir: "/tmp/{{ ruby_version }}"
+
+  - name: Set gemrc
+    copy:
+      src: gemrc
+      dest: ~vagrant/.gemrc
+      owner: vagrant
+      group: vagrant
+
+  - name: Install gems
+    gem:
+      name: "{{ item }}"
+      state: present
+      user_install: no
+    with_items: ruby_gems

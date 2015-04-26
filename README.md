@@ -8,6 +8,7 @@ the sometimes long provisioning times when running `vagrant up`
 * Nginx 1.6
 * PostgreSQL 9.4
 * NodeJS
+* Ruby
 
 
 ## Dependencies
@@ -25,6 +26,6 @@ $ vagrant box add phpacker-trusty64 builds/trusty64.box --force
 
 ## To do
 - [x] Add NodeJS role
-- [ ] Add Ruby role
+- [x] Add Ruby role
 - [ ] Include dotfiles
 - [ ] Finetune PostgreSQL role
