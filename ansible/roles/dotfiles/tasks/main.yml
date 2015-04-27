@@ -1,0 +1,7 @@
+---
+  - name: Set custom bashrc for Vagrant user
+    copy:
+      src: bashrc
+      dest: ~vagrant/.bashrc
+      owner: vagrant
+      group: vagrant

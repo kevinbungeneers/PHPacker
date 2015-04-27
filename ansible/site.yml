@@ -4,6 +4,7 @@
   connection: local
   roles:
     - common
+    - dotfiles
     - nginx
     - postgresql
     - php
