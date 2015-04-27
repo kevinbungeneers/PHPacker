@@ -27,5 +27,5 @@ $ vagrant box add phpacker-trusty64 builds/trusty64.box --force
 ## To do
 - [x] Add NodeJS role
 - [x] Add Ruby role
-- [ ] Include dotfiles
+- [x] Include dotfiles
 - [ ] Finetune PostgreSQL role
