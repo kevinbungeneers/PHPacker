@@ -1,0 +1,50 @@
+---
+  - name: Install dependencies
+    apt:
+      pkg: "{{ item }}"
+      state: present
+      update_cache: yes
+    with_items: netatalk_dependencies
+
+  - name: Download Netatalk source
+    get_url:
+      url: http://downloads.sourceforge.net/project/netatalk/netatalk/3.1.7/netatalk-3.1.7.tar.gz?r=&ts=1430160451&use_mirror=heanet
+      dest: "/tmp/netatalk-3.1.7.tar.gz"
+
+  - name: Extract Netatalk source
+    unarchive:
+      src: "/tmp/netatalk-3.1.7.tar.gz"
+      dest: /tmp
+      copy: no
+
+  - name: Copy configure script
+    copy:
+      src: configure.sh
+      dest: /tmp/netatalk-3.1.7/configure.sh
+      owner: vagrant
+      group: vagrant
+      mode: 0770
+
+  - name: Configure build
+    command: ./configure.sh
+    args:
+      chdir: "/tmp/netatalk-3.1.7"
+
+  - name: Compile Netatalk
+    command: make -j{{ ansible_processor_cores }}
+    args:
+      chdir: "/tmp/netatalk-3.1.7"
+
+  - name: Install Netatalk
+    command: make install
+    args:
+      chdir: "/tmp/netatalk-3.1.7"
+
+  - name: Configure AFP shares
+    template:
+      src: "afp.conf.j2"
+      dest: "/usr/local/etc/afp.conf"
+    when: nginx_sites | length > 0
+    notify:
+      - Reload avahi
+      - Start Netatalk
