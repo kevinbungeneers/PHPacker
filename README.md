@@ -18,14 +18,19 @@ the sometimes long provisioning times when running `vagrant up`
 * [Vagrant](http://vagrantup.com)
 
 ## Getting started
-Clone this repository and execute the following:
+Clone this repository:
 ```bash
-$ packer build trusty.json
-$ vagrant box add phpacker-trusty64 builds/trusty64.box --force
+$ git clone https://github.com/kevinbungeneers/PHPacker.git
 ```
 
-## To do
-- [x] Add NodeJS role
-- [x] Add Ruby role
-- [x] Include dotfiles
-- [ ] Finetune PostgreSQL role
+Build your box:
+```bash
+$ packer build trusty.json
+```
+
+Go grab yourself a few cups of coffee, this may take a while.
+
+Finally, add it:
+```bash
+$ vagrant box add phpacker-trusty64 builds/trusty64.box --force
+```
