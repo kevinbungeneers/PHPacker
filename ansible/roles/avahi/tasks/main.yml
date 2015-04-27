@@ -1,0 +1,8 @@
+---
+  - name: Install avahi
+    apt:
+      pkg: avahi-daemon
+      state: present
+      update_cache: yes
+    notify:
+      - Start avahi service

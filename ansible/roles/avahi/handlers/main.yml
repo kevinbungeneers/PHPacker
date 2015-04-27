@@ -1,0 +1,5 @@
+---
+  - name: Start avahi service
+    service:
+      name: avahi-daemon
+      state: started
