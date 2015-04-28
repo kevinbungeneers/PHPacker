@@ -39,12 +39,5 @@
     command: make install
     args:
       chdir: "/tmp/netatalk-3.1.7"
-
-  - name: Configure AFP shares
-    template:
-      src: "afp.conf.j2"
-      dest: "/usr/local/etc/afp.conf"
-    when: nginx_sites | length > 0
     notify:
-      - Reload avahi
       - Start Netatalk
