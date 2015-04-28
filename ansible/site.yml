@@ -11,3 +11,5 @@
     - composer
     - nodejs
     - ruby
+    - avahi
+    - netatalk
