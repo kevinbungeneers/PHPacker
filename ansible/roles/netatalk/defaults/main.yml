@@ -11,6 +11,7 @@
     - libtdb-dev
     - libmysqlclient-dev
     - libavahi-client-dev
+    - avahi-daemon
     - libacl1-dev
     - libldap2-dev
     - libcrack2-dev
