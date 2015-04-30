@@ -8,10 +8,17 @@ apt-get update
 # Upgrade all installed packages incl. kernel and kernel headers
 apt-get -y upgrade linux-server linux-headers-server
 
-# ensure the correct kernel headers are installed
+# Ensure the correct kernel headers are installed
 apt-get -y install linux-headers-$(uname -r)
 
+# Install ansible
 apt-get -y install ansible
+
+# Create a default hosts file for ansible
+cat <<EOF >/etc/ansible/hosts
+[local]
+localhost
+EOF
 
 apt-get -y install nfs-common portmap
 
