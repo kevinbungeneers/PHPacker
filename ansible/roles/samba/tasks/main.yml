@@ -1,0 +1,22 @@
+---
+ - name: Install the Samba and additional packages
+   apt: pkg={{ item }} state=installed update_cache=true
+   with_items:
+     - samba
+     - samba-common
+     - python-glade2
+     - system-config-samba
+
+ - name: Copy the Customize smb.conf file
+   template: src=etc_samba_smb.conf.j2 dest=/etc/samba/smb.conf backup=yes
+   notify:
+     - Restart Samba
+
+ - name: Check that {{ public_share_path }} exist
+   command: /usr/bin/test -e {{ public_share_path }}
+   register: public_dir_exists
+   ignore_errors: True
+
+ - name: Create {{ public_share_path }} directory
+   when: public_dir_exists.rc != 0
+   file: state=directory path={{ public_share_path }} owner=nobody group=nogroup mode=0755 recurse=yes
