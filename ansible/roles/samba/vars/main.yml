@@ -1,0 +1,4 @@
+---
+ workgroup: WORKGROUP
+ public_share_name: www
+ public_share_path: /var/www/
