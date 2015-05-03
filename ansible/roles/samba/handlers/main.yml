@@ -3,3 +3,4 @@
    service:
      name: smbd
      state: restarted
+     enabled: no
