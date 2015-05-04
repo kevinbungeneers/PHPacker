@@ -1,9 +1,9 @@
 ---
- - name: Stop Samba
-   service:
-     name: "{{ item }}"
-     state: stopped
-     enabled: no
+  - name: Stop Samba
+    service:
+      name: "{{ item }}"
+      state: stopped
+      enabled: no
     with_items:
       - samba
       - smbd
