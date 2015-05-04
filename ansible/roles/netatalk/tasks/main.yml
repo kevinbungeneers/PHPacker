@@ -40,5 +40,5 @@
     args:
       chdir: "/tmp/netatalk-3.1.7"
     notify:
-      - Start Avahi
-      - Start Netatalk
+      - Stop Avahi
+      - Stop Netatalk

@@ -1,6 +1,10 @@
 ---
- - name: Restart Samba
+ - name: Stop Samba
    service:
-     name: smbd
-     state: restarted
+     name: "{{ item }}"
+     state: stopped
      enabled: no
+    with_items:
+      - samba
+      - smbd
+      - nmbd
