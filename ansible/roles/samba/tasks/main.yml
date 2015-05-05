@@ -1,11 +1,12 @@
 ---
- - name: Install the Samba and additional packages
-   apt:
-     pkg: "{{ item }}"
-     state: installed
-     update_cache: true
-   with_items:
-     - samba
-     - samba-common
-     - python-glade2
-     - system-config-samba
+  - name: Install the Samba and additional packages
+    apt:
+      pkg: "{{ item }}"
+      state: installed
+      update_cache: true
+    with_items:
+      - samba
+      - samba-common
+      - python-glade2
+      - system-config-samba
+    notify: Stop Samba

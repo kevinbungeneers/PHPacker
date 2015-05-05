@@ -5,6 +5,8 @@
       state: stopped
       enabled: no
     with_items:
+      - samba-ad-dc
       - samba
       - smbd
       - nmbd
+      
