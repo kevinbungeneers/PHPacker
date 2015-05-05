@@ -1,15 +1,12 @@
----
-  - name: Reload Avahi
-    service:
-      name: avahi-daemon
-      state: reloaded
-
-  - name: Start Netatalk
+---  
+  - name: Stop Netatalk
     service:
       name: netatalk
-      state: started
+      state: stopped
+      enabled: no
 
-  - name: Start Avahi
+  - name: Stop Avahi
     service:
       name: avahi-daemon
-      state: started
+      state: stopped
+      enabled: no
