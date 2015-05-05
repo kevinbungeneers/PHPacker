@@ -1,0 +1,12 @@
+---  
+  - name: Stop Netatalk
+    service:
+      name: netatalk
+      state: stopped
+      enabled: no
+
+  - name: Stop Avahi
+    service:
+      name: avahi-daemon
+      state: stopped
+      enabled: no
