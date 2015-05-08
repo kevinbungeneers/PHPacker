@@ -18,3 +18,4 @@
   with_items:
    - postgresql-server-dev-9.4
    - postgresql-9.4
+   - python-psycopg2
