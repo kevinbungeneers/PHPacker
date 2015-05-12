@@ -21,9 +21,17 @@
   postgresql_pg_hba_trust_hosts: []
   postgresql_pg_hba_custom: []
 
-  postgresql_databases: []
-  postgresql_users: []
-  postgresql_user_privileges: []
+  postgresql_databases:
+    - name: vagrant
+
+  postgresql_users:
+    - name: vagrant
+      password: vagrant
+
+  postgresql_user_privileges:
+    - name: vagrant
+      db: vagrant
+      role_attr_flags: SUPERUSER
 
   postgresql_listen_addresses:
     - '*'
